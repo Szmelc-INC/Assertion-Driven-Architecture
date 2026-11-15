@@ -8,3 +8,8 @@
 /benchmark/results/
 # Optional host<->sandbox shared folder (see docker-compose.yml)
 /.shared/
+
+# makepkg
+/src/
+/pkg/
+/*.pkg.tar.*
