@@ -14,7 +14,7 @@
           pname = "ada-agent";
           version = "0-unstable-${self.shortRev or self.dirtyShortRev or "dirty"}";
           src = ./.;
-          vendorHash = pkgs.lib.fakeHash;
+          vendorHash = "sha256-oZ6wWZ+DEYMksB4m82ogTjyZnCs5yOjUD0+qmyJtOC4=";
           subPackages = [ "cmd/ada" "cmd/adax" ];
           env.CGO_ENABLED = 0;
           ldflags = [ "-s" "-w" "-X main.version=${self.shortRev or "dirty"}" ];
