@@ -31,8 +31,8 @@ prepare() {
 build() {
   cd "$_repo"
   export GOPATH="$srcdir/gopath" CGO_ENABLED=0 GOFLAGS="-trimpath -mod=readonly -modcacherw"
-  go build -ldflags "-s -w -X main.version=$pkgver" -o ada ./cmd/adax
-  go build -ldflags "-s -w" -o ada_agent ./cmd/ada
+  go build -ldflags "-s -w -X main.version=$pkgver" -o bin/ada ./cmd/adax
+  go build -ldflags "-s -w" -o bin/ada_agent ./cmd/ada
 }
 
 check() {
@@ -43,7 +43,7 @@ check() {
 
 package() {
   cd "$_repo"
-  install -Dm755 ada ada_agent -t "$pkgdir/usr/bin/"
+  install -Dm755 bin/ada bin/ada_agent -t "$pkgdir/usr/bin/"
   install -Dm644 README.md -t "$pkgdir/usr/share/doc/$pkgname/"
   cp -r benchmarks "$pkgdir/usr/share/doc/$pkgname/"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
