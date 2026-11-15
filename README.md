@@ -471,3 +471,24 @@ type LLM interface {
 ```
 
 `OllamaLLM` is provided; `MockLLM`/`ScriptedLLM` make the loop testable without a server.
+
+## Install
+
+[![nix](https://github.com/Szmelc-INC/Assertion-Driven-Architecture/actions/workflows/nix.yml/badge.svg)](https://github.com/Szmelc-INC/Assertion-Driven-Architecture/actions/workflows/nix.yml)
+
+**Arch Linux** via [SAUR](https://github.com/Szmelc-INC/SAUR):
+
+```sh
+curl -fsSL https://szmelc-inc.github.io/SAUR/add | sudo bash   # once: adds [saur] to pacman.conf
+sudo pacman -S ada-agent-git
+```
+
+**Nix**:
+
+```sh
+nix run github:Szmelc-INC/Assertion-Driven-Architecture
+nix profile install github:Szmelc-INC/Assertion-Driven-Architecture
+nix develop          # dev shell inside a clone
+```
+
+Then run `ada --help`.
